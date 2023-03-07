@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: release-name-actions-runner-controller-serving-cert
+  namespace: git-action-runner-new
+spec:
+  dnsNames:
+  - release-name-actions-runner-controller-webhook.default.svc
+  - release-name-actions-runner-controller-webhook.default.svc.cluster.local
+  issuerRef:
+    kind: Issuer
+    name: release-name-actions-runner-controller-selfsigned-issuer
+  secretName: release-name-actions-runner-controller-serving-cert

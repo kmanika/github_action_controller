@@ -1,0 +1,48 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: release-name-actions-runner-controller-runner-editor
+  namespace: git-action-runner-new
+rules:
+- apiGroups:
+  - actions.summerwind.dev
+  resources:
+  - runners
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - actions.summerwind.dev
+  resources:
+  - runners/status
+  verbs:
+  - get
+  - patch
+  - update
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: release-name-actions-runner-controller-runner-viewer
+  namespace: git-action-runner-new
+rules:
+- apiGroups:
+  - actions.summerwind.dev
+  resources:
+  - runners
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - actions.summerwind.dev
+  resources:
+  - runners/status
+  verbs:
+  - get
+---

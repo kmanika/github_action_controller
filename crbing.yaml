@@ -1,0 +1,28 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: release-name-actions-runner-controller-proxy
+  namespace: git-action-runner-new
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: release-name-actions-runner-controller-proxy
+subjects:
+- kind: ServiceAccount
+  name: release-name-actions-runner-controller
+  namespace: git-action-runner-new
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: release-name-actions-runner-controller-manager
+  namespace: git-action-runner-new
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: release-name-actions-runner-controller-manager
+subjects:
+- kind: ServiceAccount
+  name: release-name-actions-runner-controller
+  namespace: git-action-runner-new
+---
